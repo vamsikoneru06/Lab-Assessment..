@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    double temp[3][3], sum = 0, maxT = -1000, minT = 1000;
+    int hot, cold;
+
+    for (int i = 0; i < 3; i++)
+        for (int j = 0; j < 3; j++) {
+            cin >> temp[i][j];
+            sum += temp[i][j];
+            if (temp[i][j] > maxT) maxT = temp[i][j], hot = i;
+            if (temp[i][j] < minT) minT = temp[i][j], cold = i;
+        }
+
+    cout << "Hottest: Location " << hot << " (" << maxT << "°C)\n";
+    cout << "Coldest: Location " << cold << " (" << minT << "°C)\n";
+    cout << "Average Temp: " << sum / 9 << "°C\n";
+    return 0;
+}
