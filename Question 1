@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+class HospitalBill {
+    double due;
+public:
+    HospitalBill(double total, double paid = 0) : due(total - paid) {}
+    void checkStatus() {
+        cout << "Final bill: " << (due <= 0 ? "Fully Paid ": "Outstanding Due ₹") << due << endl;
+    }
+};
+
+int main() {
+    double total, paid;
+    cout << "Enter total bill & amount paid: ";
+    cin >> total >> paid;
+    HospitalBill bill(total, paid);
+    bill.checkStatus();
+    return 0;
+}
